@@ -1,0 +1,18 @@
+bottom_light_color_mapping = {
+    "red": (255, 0, 0),
+    "green": (0, 128, 0),
+    "blue": (0, 0, 255),
+    "white": (255, 255, 255),
+    "orange": (255, 165, 0),
+    "light_orange": (255, 200, 100),
+    "dark_yellow": (220, 220, 1),
+    "yellow": (255, 255, 0),
+    "light_green": (154, 245, 154),
+    "cyan": (0, 255, 255),
+    "light_blue": (112, 184, 255),
+    "sky_blue": (135, 206, 235),
+    "light_purple": (129, 113, 213),
+    "purple": (128, 0, 128),
+    "dark_pink": (221, 67, 232),
+    "pink": (225, 159, 245),
+}
