@@ -43,3 +43,8 @@ monitor_backlight = {
   "blue_4": (70, 205, 255),
   "blue_5": (124, 205, 254),
 }
+
+light_color_mapping = {
+  "monitor_backlight": monitor_backlight,
+  "bottom_light": bottom_light_color_mapping,
+}

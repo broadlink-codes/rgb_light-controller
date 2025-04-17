@@ -1,5 +1,6 @@
 [{
   "device_name": "bottom_light",
+  "max_brightness": 6,
   "command_mapping": {
     "on":  [
       10016,
@@ -1795,6 +1796,7 @@
 },
 {
   "device_name": "monitor_backlight",
+  "max_brightness": 9,
   "command_mapping": {
     "on": [
       6206,
