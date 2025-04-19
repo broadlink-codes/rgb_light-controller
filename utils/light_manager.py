@@ -1,6 +1,7 @@
-from typing import Literal, Optional
+from typing import Optional
 import json
 import requests
+import time
 
 from base import SEND_PACKET_ENDPOINT
 from config.types import TLightConfig, PowerStatus
@@ -54,7 +55,14 @@ class LightManager:
         increase_brightness_commands = ["decrease_brightness"] * self.light_config[
             "max_brightness"
         ] + ["increase_brightness"] * initial_brightness
-        commands = ["on", starting_color] + increase_brightness_commands + ["off"]
+        normal_mode = []
+        try:
+            self.light_config["command_mapping"]["normal_mode"]
+            normal_mode = ["normal_mode"]
+        except:
+            pass
+
+        commands = ["on", starting_color] + normal_mode + increase_brightness_commands + ["off"]
         self.execute_commands(commands)
 
         self.previous_color = starting_color
@@ -66,6 +74,9 @@ class LightManager:
 
         ## check all commands exist
         for command in commands:
+            if command.startswith("wait"):
+                continue
+
             if command not in self.light_config["command_mapping"]:
                 raise Exception(f"Command {command} not supported")
 
@@ -75,6 +86,9 @@ class LightManager:
                 command_to_exec == self.previous_color
                 and self.power_status == PowerStatus.ON
             ):
+                continue
+            if command_to_exec.startswith("wait"):
+                time.sleep(float(command_to_exec.split("_")[1]))
                 continue
 
             pulse_packet = self.light_config["command_mapping"][command_to_exec]
@@ -89,9 +103,15 @@ class LightManager:
                 if command_to_exec == PowerStatus.ON.value or command_to_exec == PowerStatus.OFF.value:
                     self.power_status = PowerStatus(command_to_exec)
                 elif command_to_exec in except_color_commands:
-                    pass
+                    if self.brightness_level is not None:
+                      if command_to_exec == "decrease_brightness":
+                          self.brightness_level -= 1
+                      elif command_to_exec == "increase_brightness":
+                          self.brightness_level += 1
+
                 else:
-                    self.previous_color = command_to_exec
+                    if self.previous_color is not None:
+                      self.previous_color = command_to_exec
 
                 print("Command executed successfully.")
             else:

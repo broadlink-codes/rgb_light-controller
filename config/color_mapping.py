@@ -15,6 +15,7 @@ bottom_light_color_mapping = {
     "purple": (128, 0, 128),
     "dark_pink": (221, 67, 232),
     "pink": (225, 159, 245),
+    "black": (0, 0, 0)
 }
 
 monitor_backlight = {
@@ -42,6 +43,7 @@ monitor_backlight = {
   "blue_3": (0, 194, 237),
   "blue_4": (70, 205, 255),
   "blue_5": (124, 205, 254),
+  "black": (0, 0, 0)
 }
 
 light_color_mapping = {
