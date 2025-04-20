@@ -1,0 +1,18 @@
+{
+  "SPIKE_MONITOR_CONFIG": {
+    "sample_rate": 44100,
+    "chunk_size": 1024,
+    "spike_threshold": 8,
+    "channels": 1
+  },
+  "SCREEN_MONITOR_CONFIG": {
+    "display_id": 1,
+    "save_images": false
+  },
+  "BACKLIGHT_CONFIG": {
+    "display_id": 1,
+    "interval": 0.1,
+    "duration": null,
+    "save_images": false
+  }
+}

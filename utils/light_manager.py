@@ -20,6 +20,7 @@ class LightManager:
         self.previous_color: Optional[str] = None
         self.power_status: PowerStatus = PowerStatus.OFF
         self.brightness_level: Optional[int] = None
+        self.device_name = device_name
 
         ## important sequence of execution
         self.__create_light_config(device_name)
