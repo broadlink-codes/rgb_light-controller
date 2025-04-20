@@ -76,6 +76,14 @@ Edit the main configuration in `./config.json`:
 
 ---
 
+## 🔐 Required Environment Variables
+
+| Variable         | Description                                  |
+|------------------|----------------------------------------------|
+| `BROADLINK_API_URL`    | (get it from the docker running)         |
+
+---
+
 ## 🔄 Running Features
 
 ### Start Backlight Feature
