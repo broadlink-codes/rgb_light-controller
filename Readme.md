@@ -80,7 +80,7 @@ Edit the main configuration in `./config.json`:
 
 | Variable         | Description                                  |
 |------------------|----------------------------------------------|
-| `BROADLINK_API_URL`    | (get it from the docker running)         |
+| `BROADLINK_API_URL`    | (ex: http://localhost:8000/api/)         |
 
 ---
 
